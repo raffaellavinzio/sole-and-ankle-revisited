@@ -34,4 +34,11 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   );
 };
 
+// const Wrapper = styled.div`
+//   padding: 16px;
+//   @media ${QUERIES.laptopMax} {
+//     padding: 32px;
+//   }
+// `;
+
 export default MobileMenu;

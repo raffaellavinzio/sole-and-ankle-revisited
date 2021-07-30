@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 
 import SearchInput from '../SearchInput';
 import UnstyledButton from '../UnstyledButton';
@@ -9,6 +9,7 @@ import Icon from '../Icon';
 
 const SuperHeader = () => {
   return (
+    <>
     <Wrapper>
       <MarketingMessage>
         Free shipping on domestic orders over $75!
@@ -19,6 +20,9 @@ const SuperHeader = () => {
         <Icon id="shopping-bag" strokeWidth={1} />
       </UnstyledButton>
     </Wrapper>
+
+    <DecoLine/>
+    </>
   );
 };
 
@@ -32,6 +36,10 @@ const Wrapper = styled.div`
   height: 40px;
   padding-left: 32px;
   padding-right: 32px;
+
+  @media ${QUERIES.tablet} {
+     display: none;
+   }
 `;
 
 const MarketingMessage = styled.span`
@@ -48,5 +56,15 @@ const HelpLink = styled.a`
     outline: none;
   }
 `;
+
+const DecoLine = styled.div`
+  background-color: ${COLORS.gray[900]};
+  height: 4px;
+  display: none;
+
+  @media ${QUERIES.tablet} {
+     display: block;
+   }
+`
 
 export default SuperHeader;
