@@ -1,39 +1,46 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { WEIGHTS } from '../../constants';
+import { WEIGHTS, QUERIES } from "../../constants";
 
-import Breadcrumbs from '../Breadcrumbs';
-import Select from '../Select';
-import Spacer from '../Spacer';
-import ShoeSidebar from '../ShoeSidebar';
-import ShoeGrid from '../ShoeGrid';
+import Breadcrumbs from "../Breadcrumbs";
+import Select from "../Select";
+import Spacer from "../Spacer";
+import ShoeSidebar from "../ShoeSidebar";
+import ShoeGrid from "../ShoeGrid";
 
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
     <Wrapper>
       <MainColumn>
+        <BreadcrumbsWrapper>
+          <Breadcrumbs>
+            <Breadcrumbs.Crumb href='/'>Home</Breadcrumbs.Crumb>
+            <Breadcrumbs.Crumb href='/sale'>Sale</Breadcrumbs.Crumb>
+            <Breadcrumbs.Crumb href='/sale/shoes'>Shoes</Breadcrumbs.Crumb>
+          </Breadcrumbs>
+        </BreadcrumbsWrapper>
         <Header>
           <Title>Running</Title>
-          <Select
-            label="Sort"
-            value={sortId}
-            onChange={(ev) => setSortId(ev.target.value)}
-          >
-            <option value="newest">Newest Releases</option>
-            <option value="price">Price</option>
-          </Select>
+          <SelectWrapper>
+            <Select
+              label='Sort'
+              value={sortId}
+              onChange={ev => setSortId(ev.target.value)}
+            >
+              <option value='newest'>Newest Releases</option>
+              <option value='price'>Price</option>
+            </Select>
+          </SelectWrapper>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
       </MainColumn>
       <LeftColumn>
         <Breadcrumbs>
-          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">
-            Shoes
-          </Breadcrumbs.Crumb>
+          <Breadcrumbs.Crumb href='/'>Home</Breadcrumbs.Crumb>
+          <Breadcrumbs.Crumb href='/sale'>Sale</Breadcrumbs.Crumb>
+          <Breadcrumbs.Crumb href='/sale/shoes'>Shoes</Breadcrumbs.Crumb>
         </Breadcrumbs>
         <Spacer size={42} />
         <ShoeSidebar />
@@ -51,16 +58,34 @@ const Wrapper = styled.div`
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
+
+  @media ${QUERIES.tablet} {
+    display: none;
+  }
 `;
 
 const MainColumn = styled.div`
   flex: 1;
 `;
 
+const BreadcrumbsWrapper = styled.div`
+  display: none;
+  @media ${QUERIES.tablet} {
+    display: block;
+  }
+`;
+
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+`;
+
+const SelectWrapper = styled.div`
+  display: block;
+  @media ${QUERIES.phone} {
+    display: none;
+  }
 `;
 
 const Title = styled.h2`
