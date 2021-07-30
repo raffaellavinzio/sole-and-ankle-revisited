@@ -30,6 +30,8 @@ const Header = () => {
           <NavLink href='/women'>Women</NavLink>
           <NavLink href='/kids'>Kids</NavLink>
           <NavLink href='/collections'>Collections</NavLink>
+          <NavLink href='/collections'>Collections</NavLink>
+          <NavLink href='/collections'>Collections</NavLink>
         </Nav>
         <Side />
 
@@ -61,6 +63,11 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
+  @media ${QUERIES.laptop} {
+    overflow-y: hidden;
+    overflow-x: auro;
+  }
+
   @media ${QUERIES.phone} {
     padding: 18px 16px;
   }
@@ -68,8 +75,9 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 8vw - 4rem, 2.5rem);
   margin: 0px 48px;
+  margin-right: -32px;
 
   @media ${QUERIES.tablet} {
     display: none;
