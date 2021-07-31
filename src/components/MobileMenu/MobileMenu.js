@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { DialogOverlay, DialogContent } from "@reach/dialog";
 
-import { COLORS, QUERIES, WEIGHTS } from "../../constants";
+import { QUERIES } from "../../constants";
 
 import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon";
@@ -49,7 +49,7 @@ const Overlay = styled(DialogOverlay)`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(96, 100, 108, 0.8);
+  background-color: var(--color-gray-700-alpha-800);
 
   @media ${QUERIES.laptop} {
     display: block;
@@ -59,7 +59,7 @@ const Overlay = styled(DialogOverlay)`
 const Content = styled(DialogContent)`
   position: relative;
   margin-left: auto;
-  background-color: ${COLORS.white};
+  background-color: var(--color-white);
   width: 300px;
   height: 100%;
   padding: 32px;
@@ -86,14 +86,14 @@ const NavLink = styled.a`
   display: block;
   color: inherit;
   font-size: 18px;
-  font-weight: ${WEIGHTS.medium};
+  font-weight: var(--font-weight-medium);
   line-height: 2;
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
 
   &:hover {
-    color: ${COLORS.secondary}
+    color: var(--color-secondary);
   }
 `;
 
@@ -104,9 +104,9 @@ const Footer = styled.footer`
 `;
 
 const FooterLink = styled.a`
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
   font-size: 14px;
-  font-weight: ${WEIGHTS.normal};
+  font-weight: var(--font-weight-normal);
   text-decoration: none;
   line-height: 2;
   &:nth-child(1) {
